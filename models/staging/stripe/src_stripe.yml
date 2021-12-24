@@ -2,11 +2,13 @@ version: 2
 
 sources:
   - name: stripe
+    description: Payment processing application database.
     database: dbt-tutorial
 
     schema: stripe
     tables:
       - name: payment
+        desctiption: Raw data payments.
         loaded_at_field: _batched_at
         freshness:
           warn_after: {count: 12, period: hour}
