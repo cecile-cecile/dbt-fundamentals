@@ -10,12 +10,9 @@ daily_total as (
         created_at,
         sum(amount) as total_possible_revenue,
         
-    {% for status in ['success', 'fail'] %}
-
-        sum(case when status = '{{ status }}' then amount else 0 end) as {{ status }}_total {{ ',' if not loop.last}}
-
-    {% endfor %}
-
+        {%- for status in ['success', 'fail'] -%}
+        sum(case when status = '{{ status }}' then amount else 0 end) as {{ status }}_total{{ ',' if not loop.last}}
+        {% endfor %}
     from payments
     group by 1
     order by 1
