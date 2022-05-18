@@ -24,6 +24,13 @@ clean-targets:         # directories to be removed by `dbt clean`
     - "target"
     - "dbt_modules"
 
+vars:
+  
+  util_days_start_date: '2020-01-01'
+  util_days_end_date: '2021-01-01'
+
+snowflake_spend:
+  enabled: true
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
